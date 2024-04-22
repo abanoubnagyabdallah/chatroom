@@ -36,11 +36,14 @@ def receive(cli):
 def handle():
     while True:
         cli,add=soc.accept()
-        cli.send('Nick'.encode())
+        cli.send('Nick : '.encode())
         nickname=cli.recv(1024).decode()
+
         nicknames.append(nickname)
         clients.append(cli)
+
         broadcast(nickname+' join to chat room')
+
         thread = threading.Thread(target=receive,args=(cli,))
         thread.start()
 

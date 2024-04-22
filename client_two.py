@@ -8,7 +8,7 @@ cli=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 cli.connect(serv_add)
 nickname=input('Enter your name :')
 
-def send():
+def Write():
     while True:
         try:
             msg = nickname + ' : ' + input()
@@ -33,10 +33,12 @@ def receive():
 
 
 
-thread_send = threading.Thread(target=send,args=())
-thread_send.start()
-
 thread_receive = threading.Thread(target=receive,args=())
 thread_receive.start()
+
+thread_send = threading.Thread(target=Write,args=())
+thread_send.start()
+
+
 
 
