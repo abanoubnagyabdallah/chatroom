@@ -6,7 +6,7 @@ port = 12345
 serv_add=(host,port)
 cli=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 cli.connect(serv_add)
-nickname=input('Enter your name :')
+nickname = input('Enter your name :')
 
 def Write():
     while True:
@@ -29,8 +29,6 @@ def receive():
             print('receive Error')
             cli.close()
             break
-
-
 
 
 

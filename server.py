@@ -11,7 +11,6 @@ clients=[]
 nicknames=[]
 
 
-
 def broadcast(message):
     for cli in clients:
         cli.send(message.encode())
@@ -36,7 +35,7 @@ def receive(cli):
 def handle():
     while True:
         cli,add=soc.accept()
-        cli.send('Nick : '.encode())
+        cli.send('Nick'.encode())
         nickname=cli.recv(1024).decode()
 
         nicknames.append(nickname)
